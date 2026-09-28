@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: hogmis-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: hogmis
+      POSTGRES_PASSWORD: hogmis_dev
+      POSTGRES_DB: hogmis
+    ports:
+      - "5432:5432"
+    volumes:
+      - hogmis_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  hogmis_postgres_data:
